@@ -14,6 +14,10 @@ export class AppComponent {
   title = 'adil.photography.webapp';
   data: Item[] = [
     {
+      imageSrc: './assets/images/work20.jpg',
+      imageAlt: '14'
+    },
+    {
       imageSrc: './assets/images/work1.jpg',
       imageAlt: '1'
     },
