@@ -1,3 +1,4 @@
+import { CarouselModule } from './carousel/carousel.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
@@ -13,7 +14,8 @@ import { GalleryLightboxComponent } from './gallery-lightbox/gallery-lightbox.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
