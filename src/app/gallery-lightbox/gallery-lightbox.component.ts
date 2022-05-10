@@ -1,6 +1,7 @@
 import { animate, AnimationEvent, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { of } from 'rxjs';
+import { HostListener } from "@angular/core";
 
 interface Item {
   imageSrc: string;
@@ -41,10 +42,15 @@ export class GalleryLightboxComponent implements OnInit {
   currentLightBoxImage: Item = this.galleryData[0];
   currentIndex = 0;
   controls = true;
-  
+  isMobile = false;
+  screenHeight: number | undefined;
+  screenWidth!: number;
 
   
-  constructor() { }
+  constructor() { 
+    this.getScreenSize();
+
+  }
 
   ngOnInit(): void {}
 
@@ -53,6 +59,10 @@ export class GalleryLightboxComponent implements OnInit {
     this.previewImage = true;
     this.currentIndex = index;
     this.currentLightBoxImage = this.galleryData[index];
+    if(this.screenWidth < 790){
+      this.previewImage = false;
+      this.showMask = false;
+    }
   }
 
   onAnimationEnd(event: AnimationEvent){
@@ -81,4 +91,9 @@ export class GalleryLightboxComponent implements OnInit {
     this.currentLightBoxImage = this.galleryData[this.currentIndex];   
   }
 
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?: undefined) {
+        this.screenHeight = window.innerHeight;
+        this.screenWidth = window.innerWidth;
+  }
 }
