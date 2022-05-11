@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "adil-rahman": {
+      "hosting": {
+        "adil.photography.webapp": [
+          "adil-rahman"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "adil-rahman"
+  }
+}
